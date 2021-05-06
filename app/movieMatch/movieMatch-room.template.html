@@ -1,0 +1,24 @@
+<div class="page">
+  <h1>MovieMatch</h1>
+
+  <div>
+    <span>Utilisateurs dans cette salle :</span>
+  </div>
+
+  <div id="userList">
+    <div ng-repeat="user in vm.users">
+      {{user.pseudo}}
+    </div>
+  </div>
+
+  <input type="button" class="btn btn-success" value="Lancer la séance" ng-click="vm.launchSession()" />
+
+</div>
+
+<style>
+  #userList {
+    background-color: #108080;
+    border-radius: 25%;
+    height: 20px
+  }
+</style>

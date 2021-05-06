@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="fr" ng-app="movieApp" class="background-parent">
+  <head>
+    <meta charset="utf-8">
+    <title>MovieMatch</title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="app.css" />
+
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="movieMatch/movieMatch.module.js"></script>
+    <script src="movieMatch/movieMatch-home.component.js"></script>
+    <script src="movieMatch/movieMatch-room.component.js"></script>
+    <script src="movieMatch/movieMatch-play.component.js"></script>
+    <script src="movieMatch/movieMatch.service.js"></script>
+  </head>
+  <body class="background-children">
+    <div ng-view></div>
+  </body>
+</html>
