@@ -1,22 +1,27 @@
-<div class="page">
+<div class="page" id="pageHome">
   <h1>MovieMatch</h1>
 
-  <div>
-    <label>Pseudo</label>
-    <input type="text" ng-model="vm.pseudo"/>
-  </div>
-
-  <div ng-if="vm.error == 'INVALID_PSEUDO'" class="alert alert-danger">
-    <span>Le pseudo saisi n'est pas valide.</span>
-  </div>
-  <div ng-if="vm.error == 'ERROR_ROOM_CREATION'" class="alert alert-danger">
-    <span>Une erreur est survenue lors de la création de votre groupe.</span>
-  </div>
-
-  <div>
-    <input type="button" class="btn btn-success" value="Valider" ng-click="vm.validate()"/>
-  </div>
+  <form>
+    <span>Votre pseudo : </span>
+    <input type="text" ng-model="vm.pseudo" class="form-control"/>
+  
+    <div ng-if="vm.error == 'INVALID_PSEUDO'" class="alert alert-danger">
+      <span>Le pseudo saisi n'est pas valide.</span>
+    </div>
+    <div ng-if="vm.error == 'ERROR_ROOM_CREATION'" class="alert alert-danger">
+      <span>Une erreur est survenue lors de la création de votre groupe.</span>
+    </div>
+  
+    <input type="submit" class="btn movieBtn" value="Valider" ng-click="vm.validate()"/>
+  </form>
 </div>
 
 <style>
+  form {
+    display: contents;
+  }
+
+  #pageHome input[type="text"] {
+    margin: 1em
+  }
 </style>

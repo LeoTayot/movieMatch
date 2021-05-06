@@ -1,24 +1,42 @@
 <div class="page">
   <h1>MovieMatch</h1>
+  <input id="btnLaunchParty" type="button" class="btn movieBtn" value="Lancer la séance" ng-click="vm.launchSession()" />
 
+  
   <div>
     <span>Utilisateurs dans cette salle :</span>
   </div>
-
   <div id="userList">
-    <div ng-repeat="user in vm.users">
+    <div ng-repeat="user in vm.users" class="userPseudo">
       {{user.pseudo}}
     </div>
   </div>
 
-  <input type="button" class="btn btn-success" value="Lancer la séance" ng-click="vm.launchSession()" />
 
 </div>
 
 <style>
+  #btnLaunchParty {
+    margin: 2em;
+  }
+
   #userList {
-    background-color: #108080;
-    border-radius: 25%;
-    height: 20px
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    flex-wrap: wrap;
+    width: 30%;
+  }
+
+  .userPseudo {
+    padding: 10px;
+    background-color: #ffd60a;
+    border: 2px solid #ffc300;
+    margin: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font: icon;
+    font-size: x-large;
+    font-weight: 600;
   }
 </style>

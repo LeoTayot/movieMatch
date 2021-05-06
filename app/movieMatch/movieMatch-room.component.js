@@ -15,6 +15,12 @@ angular.
         vm.users = [
           {
             pseudo: "Bob"
+          },
+          {
+            pseudo: "Laeticia"
+          },
+          {
+            pseudo: "Patrick"
           }
         ];
 
