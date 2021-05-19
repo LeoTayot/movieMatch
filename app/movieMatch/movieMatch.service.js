@@ -17,6 +17,7 @@ angular.
       , getMembers: getMembers
 
       ,voteForMovie: voteForMovie
+      ,getWinner: getWinner
     };
   
     function getFilters() {
@@ -37,7 +38,7 @@ angular.
       .catch(getFiltersFailed);
     }
 
-    function getMovies(roomId, userId, page, filter) {
+    function getMovies(roomId, userId, page, genres) {
       function getMoviesComplete (response) {
         return response.data;
       }
@@ -48,8 +49,8 @@ angular.
       }
       var with_genres = "";
       var genreFiltrer = "";
-      if(filter.genres) {
-        genreFiltrer = filter.genres.join(',');
+      if(genres) {
+        genreFiltrer = genres.join(',');
         with_genres = "&with_genres="+genreFiltrer;
       }
 
@@ -128,5 +129,22 @@ angular.
       })
       .then(voteForMovieComplete)
       .catch(voteForMovieFailed);
+    }
+
+    function getWinner(roomId) {
+      function getWinnerComplete (response) {
+        return response.data;
+      }
+  
+      function getWinnerFailed (error) {
+        $log.info('fail : ' , error.data);
+        throw error.data;
+      }
+      return $http({
+        method: 'GET'
+        , url: baseUrl+'theMovie?roomID='+roomId
+      })
+      .then(getWinnerComplete)
+      .catch(getWinnerFailed);
     }
   }

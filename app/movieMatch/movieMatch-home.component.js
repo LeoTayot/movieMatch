@@ -35,9 +35,7 @@ angular.
               var userId = response.userID;
               var roomId = response.roomID;
 
-              var newRoom = $location.search('roomId', roomId);
-              newRoom.search('userId', userId);
-              newRoom.path('/room');
+              $location.path('/room/'+roomId+'/'+userId);
             })
             .catch(function() {
               vm.error = 'ERROR_ROOM_CREATION';

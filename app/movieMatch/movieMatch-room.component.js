@@ -32,7 +32,7 @@ angular.
           .then(function(response) {
             vm.filters = response;
           })
-          //getMembers();
+          getMembers();
         }
 
         function getMembers() {

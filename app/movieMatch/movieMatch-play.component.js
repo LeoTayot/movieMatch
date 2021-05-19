@@ -13,6 +13,7 @@ angular.
         vm.loading = true;
         vm.Math = window.Math;
         vm.page=1;
+        vm.winner = {};
 
         vm.$onInit = function() {
           vm.defaultPoster = "../assets/flat_movie_round.jpg";
@@ -37,6 +38,7 @@ angular.
 
               if(indexMovie++ >= response.length) {
                 $timeout(function() {
+                    getWinner();
                     vm.initCards()
                   } , 100
                 )
@@ -51,8 +53,8 @@ angular.
           for(var i = 0; i < allCards.length; i++) {
             if(!allCards[i].classList.contains("movable")) {
               var card = allCards[i];
-              card.style.zIndex = allCards.length - i;
-              card.style.transform = 'scale(' + (20 - i) / 20 + ') translateY(-' + 30 * i + 'px)';
+            //  card.style.zIndex = allCards.length - i;
+            //  card.style.transform = 'scale(' + (20 - i) / 20 + ') translateY(-' + 30 * i + 'px)';
               addMovingEvents(card)
             }
           }
@@ -168,6 +170,25 @@ angular.
             }
           });
           el.classList.add("movable");
+        }
+
+        function getWinner() {
+          movie.getWinner(vm.roomId)
+          .then(function(response) {
+            if(response.length > 0) {
+              vm.winner = response[0];
+              angular.element("#winnerModal").modal('show');
+            }
+
+            vm.timoutMember = $timeout(function() {
+              getWinner();
+            }, 5000);
+          })
+          .catch(function(error) {
+            vm.timoutMember = $timeout(function() {
+              getWinner();
+            }, 5000);
+          })
         }
 
         function voteForCard(card) {

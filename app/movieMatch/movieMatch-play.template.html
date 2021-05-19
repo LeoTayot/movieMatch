@@ -65,6 +65,25 @@
   </div>
 </div>
 
+<div class="modal fade" id="winnerModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Ce film plaît à tout le monde !</h3>
+        <div style="display:flex; flex-direction: row; justify-content: space-between; align-items: center;">
+          <img class="floatCinema" src="https://i.giphy.com/media/UDjF1zMreMld6/giphy.webp">
+          <div>
+            <img ng-src="{{vm.winner.image || vm.defaultPoster}}">
+           <!-- <img ng-src="https://image.tmdb.org/t/p/w500/c45kCPD0U3stFeqgHPsEhfGuVhX.jpg"> --> 
+          </div>
+          <img class="floatCinema" src="https://i.giphy.com/media/UDjF1zMreMld6/giphy.webp">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <style>
   *, *:before, *:after {
   box-sizing: border-box;

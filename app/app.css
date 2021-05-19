@@ -123,6 +123,11 @@ height: 32px;
 }
 
 .modal-content img{
+  border-radius: 20px;
+  height: 400px;
+}
+
+.modal-content .floatCinema{
   border-radius: 50%;
   height: 200px;
 }
