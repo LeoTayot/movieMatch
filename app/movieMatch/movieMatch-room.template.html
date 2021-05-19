@@ -2,41 +2,81 @@
   <h1>MovieMatch</h1>
   <input id="btnLaunchParty" type="button" class="btn movieBtn" value="Lancer la séance" ng-click="vm.launchSession()" />
 
-  
-  <div>
-    <span>Utilisateurs dans cette salle :</span>
+  <h2>Filtres</h2>
+  <div id="movieFilter">
+    <input ng-repeat="filter in vm.filters.genre" class="btn movieBtn" value="{{filter.name}}" ng-click="vm.addFilter($event, filter.id)"/>
   </div>
-  <div id="userList">
-    <div ng-repeat="user in vm.users" class="userPseudo">
-      {{user.pseudo}}
+  
+  <div class="users">
+    <div class="usersDetail">
+      <h2>Code de la salle</h2>
+      <h3>{{vm.roomId}}</h3>
+    </div>
+
+    <div class="usersDetail">
+      <h2>Utilisateurs dans cette salle</h2>
+      <div class="userList">
+        <div ng-repeat="user in vm.users" class="userPseudo">
+          {{user.username}}
+        </div>
+      </div>
+    </div>
+  
+    <div class="usersDetail">
+      <h1>Invitez vos amis</h1>
+      <div id="qrcode" style="margin: 20px"></div>
     </div>
   </div>
 
+  <a class="btn btn-lg btn-primary" ng-click="vm.openModal()">Click to open Modal</a>
+</div>
 
+<div class="modal fade" id="largeModal" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-body">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3>Ce film plaît à tout le monde !</h3>
+        <img style="float: left;" src="https://i.giphy.com/media/UDjF1zMreMld6/giphy.webp">
+        <span>IMAGE MOVIE</span>
+        <img style="float: right;" src="https://i.giphy.com/media/UDjF1zMreMld6/giphy.webp">
+      </div>
+    </div>
+  </div>
 </div>
 
 <style>
+  .users {
+    display: flex;
+    width: 90%;
+    justify-content: space-around;
+  }
+
+  .usersDetail {
+    display: flex;
+    color: #dddddd;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-self: baseline;
+  }
+
+  .usersDetail h3{
+    font-size: 4em;
+  }
+
   #btnLaunchParty {
     margin: 2em;
   }
 
-  #userList {
-    display: flex;
+  #movieFilter {
     justify-content: center;
-    margin: auto;
+    display: flex;
     flex-wrap: wrap;
-    width: 30%;
   }
 
-  .userPseudo {
-    padding: 10px;
-    background-color: #ffd60a;
-    border: 2px solid #ffc300;
-    margin: 10px;
-    border-radius: 5px;
-    text-align: center;
-    font: icon;
-    font-size: x-large;
-    font-weight: 600;
+  #movieFilter .movieBtn{
+    margin: 10px
+
   }
 </style>

@@ -2,26 +2,62 @@
   <h1>MovieMatch</h1>
 
   <form>
-    <span>Votre pseudo : </span>
-    <input type="text" ng-model="vm.pseudo" class="form-control"/>
-  
+    <div class="form-line">
+      <input type="text" ng-model="vm.pseudo" class="form-control" placeholder="Pseudo"/>
+      <input type="text" ng-model="vm.roomId" class="form-control" placeholder="Numéro de groupe"/>
+    </div>
+    
+    <div class="form-line">
+      <input type="button" class="btn movieBtn" value="Créer un groupe" ng-click="vm.validate(true)"/>
+      <input type="button" class="btn movieBtn" value="Rejoindre un groupe" ng-click="vm.validate(false)"/>
+    </div>
+
     <div ng-if="vm.error == 'INVALID_PSEUDO'" class="alert alert-danger">
       <span>Le pseudo saisi n'est pas valide.</span>
+    </div>
+    <div ng-if="vm.error == 'INVALID_GROUP'" class="alert alert-danger">
+      <span>Le numéro de groupe saisi n'est pas valide.</span>
     </div>
     <div ng-if="vm.error == 'ERROR_ROOM_CREATION'" class="alert alert-danger">
       <span>Une erreur est survenue lors de la création de votre groupe.</span>
     </div>
-  
-    <input type="submit" class="btn movieBtn" value="Valider" ng-click="vm.validate()"/>
   </form>
 </div>
 
 <style>
+  .form-line {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  form .alert {
+    text-align: center;
+    width: 100%;
+  }
+  form input[type=text] {
+    display: inline-block;
+  }
+
+  form .btn {
+    margin: 1em;
+    width: 160px;
+  }
+
   form {
-    display: contents;
+    display: flex;
+    position: absolute;
+    width: 70%;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 100%;
+    align-content: center;
   }
 
   #pageHome input[type="text"] {
+    width: 300px;
     margin: 1em
   }
 </style>

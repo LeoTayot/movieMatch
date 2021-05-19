@@ -7,10 +7,14 @@
     <link rel="stylesheet" href="app.css" />
 
     <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-animate/angular-animate.js"></script>
     <script src="lib/angular-resource/angular-resource.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
+    <script src="/lib/hammerjs/hammer.min.js"></script>
+    <script src="/lib/qrcodejs/qrcode.min.js"></script>
+    
     <script src="app.module.js"></script>
     <script src="app.config.js"></script>
     <script src="movieMatch/movieMatch.module.js"></script>
@@ -20,6 +24,6 @@
     <script src="movieMatch/movieMatch.service.js"></script>
   </head>
   <body class="background-children">
-    <div ng-view></div>
+    <div ng-view style="width: 100%; height: 100%"></div>
   </body>
 </html>
